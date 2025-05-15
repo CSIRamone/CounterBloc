@@ -1,9 +1,12 @@
 
 part of 'counter_cubit.dart';
 
-abstract class CounterState {
+abstract class CounterState extends Equatable {
   final int counter;
   const CounterState(this.counter);
+
+  @override
+  List<Object> get props => [counter];
 }
 
 class CounterStateInitial extends CounterState {
@@ -11,5 +14,5 @@ class CounterStateInitial extends CounterState {
 }
 
 class CounterStateData extends CounterState {
-  CounterStateData(super.counter);
+  const CounterStateData(super.counter);
 }
